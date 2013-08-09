@@ -1,0 +1,17 @@
+<modification>
+	<id>PDFCart</id>
+	<version>1.5.3</version>
+	<vqmver>2.1.6</vqmver>
+	<author>Gennady Telegin, support@itxd.ru</author>
+	
+	<file name="catalog/view/theme/*/template/checkout/simplecheckout_cart.tpl">
+		<operation>
+			<search position="before"><![CDATA[
+				<input type="hidden" name="remove" value="" id="simplecheckout_remove">
+			]]></search>
+			<add><![CDATA[
+<a target="_blank" href="<?php echo $this->url->link('module/pdfcart/pdf');?>">Скачать в PDF</a>
+			]]></add>
+		</operation>
+	</file>
+</modification>
