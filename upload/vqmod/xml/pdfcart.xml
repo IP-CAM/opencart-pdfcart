@@ -14,4 +14,18 @@
 			]]></add>
 		</operation>
 	</file>
+	
+	<file name="catalog/view/theme/*/template/checkout/cart.tpl">
+		<operation>
+			<search position="before"><![CDATA[
+				<div class="cart-total">
+			]]></search>
+			<add><![CDATA[
+<div>
+<a target="_blank" href="<?php echo $this->url->link('module/pdfcart/pdf');?>">Скачать в PDF</a>
+</div>
+			]]></add>
+		</operation>
+	</file>
+	
 </modification>
