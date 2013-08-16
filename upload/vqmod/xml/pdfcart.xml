@@ -4,28 +4,93 @@
 	<vqmver>2.1.6</vqmver>
 	<author>Gennady Telegin, support@itxd.ru</author>
 	
-	<file name="catalog/view/theme/*/template/checkout/simplecheckout_cart.tpl">
+	<file name="catalog/language/russian/checkout/cart.php" error="skip">
 		<operation>
-			<search position="before"><![CDATA[
-				<input type="hidden" name="remove" value="" id="simplecheckout_remove">
+			<search position="after"><![CDATA[
+				$_['heading_title']
 			]]></search>
 			<add><![CDATA[
-<a target="_blank" href="<?php echo $this->url->link('module/pdfcart/pdf');?>">Скачать в PDF</a>
+				$_['pdfcart_download'] = 'Скачать в PDF';
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/language/english/checkout/cart.php" error="skip">
+		<operation>
+			<search position="after"><![CDATA[
+				$_['heading_title']
+			]]></search>
+			<add><![CDATA[
+				$_['pdfcart_download'] = 'Download in PDF';
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/controller/checkout/cart.php" error="skip">
+		<operation>
+			<search position="after"><![CDATA[
+				$this->data['totals']
+			]]></search>
+			<add><![CDATA[
+				$this->data['pdfcart_download'] = $this->language->get('pdfcart_download');
 			]]></add>
 		</operation>
 	</file>
 	
 	<file name="catalog/view/theme/*/template/checkout/cart.tpl">
 		<operation>
-			<search position="before"><![CDATA[
-				<div class="cart-total">
+			<search position="after"><![CDATA[
+				<div class="right"><a href="<?php echo $checkout; ?>"
 			]]></search>
 			<add><![CDATA[
-<div>
-<a target="_blank" href="<?php echo $this->url->link('module/pdfcart/pdf');?>">Скачать в PDF</a>
+<div class="right" style="margin-right:20px;">
+<a target="_blank" href="<?php echo $this->url->link('module/pdfcart/pdf');?>" class="button"><?php echo $pdfcart_download; ?></a>
 </div>
 			]]></add>
 		</operation>
 	</file>
 	
+	<file name="catalog/language/russian/checkout/simplecheckout.php" error="skip">
+		<operation>
+			<search position="after"><![CDATA[
+				$_['heading_title']
+			]]></search>
+			<add><![CDATA[
+				$_['pdfcart_download'] = 'Скачать в PDF';
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/language/english/checkout/simplecheckout.php" error="skip">
+		<operation>
+			<search position="after"><![CDATA[
+				$_['heading_title']
+			]]></search>
+			<add><![CDATA[
+				$_['pdfcart_download'] = 'Download in PDF';
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/controller/checkout/simplecheckout_cart.php" error="skip">
+		<operation>
+			<search position="after"><![CDATA[
+				$this->data['totals']
+			]]></search>
+			<add><![CDATA[
+				$this->data['pdfcart_download'] = $this->language->get('pdfcart_download');
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/view/theme/*/template/checkout/simplecheckout_cart.tpl" error="skip">
+		<operation>
+			<search position="before"><![CDATA[
+				<input type="hidden" name="remove" value="" id="simplecheckout_remove">
+			]]></search>
+			<add><![CDATA[
+<a target="_blank" href="<?php echo $this->url->link('module/pdfcart/pdf');?>"><?php echo $pdfcart_download; ?></a>
+			]]></add>
+		</operation>
+	</file>
 </modification>
